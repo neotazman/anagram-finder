@@ -10,6 +10,9 @@ Customize this README.md however you want to turn it into documentation for your
 
 _(Put your project plan here. It could be pseudocode, an outline-style development plan, etc. But whatever form you choose, it should be detailed enough that another developer could feasibly use it to implement your solution.)_
 
+1. take words and alphabetize them
+2. take input and alphabetize them 
+
 ## Reflection
 
 What different approaches or techniques did you consider when planning your implementation? What were the advantages and disadvantages of those alternatives?
