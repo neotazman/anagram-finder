@@ -16,11 +16,11 @@ const findAnagramInWords = (word) => { //function that finds anagrams from a giv
         }
     })
     console.log(anagramArray);
-    return anagramArray.join(', '); //turns the array into a string that can be written on the page
+    return anagramArray
 }
 
 const findAnagram = (input) => { //puts the anagrams into the results div
-    let result = findAnagramInWords(input)
+    let result = findAnagramInWords(input).join(', '); //turns the array into a string that can be written on the page
     results.innerText = '' //resets the results div when a new submission is made
     results.append(result)
 }
@@ -30,3 +30,10 @@ submit.addEventListener('click', () => { //gets the input from the text box and 
     let input = lowerWord.toLowerCase() // all the words are in lowercase
     findAnagram(input)
 })
+
+const findMultipleAnagrams = () => { //
+    let outsideArray = []
+    for(let i = 0; i < words.length; i++) {
+        findAnagramInWords(words[i])
+    }
+}
