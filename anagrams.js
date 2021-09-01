@@ -15,7 +15,6 @@ const findAnagramInWords = (word) => { //function that finds anagrams from a giv
             anagramArray.push(anaWord);
         }
     })
-    console.log(anagramArray);
     return anagramArray
 }
 
@@ -31,9 +30,24 @@ submit.addEventListener('click', () => { //gets the input from the text box and 
     findAnagram(input)
 })
 
-const findMultipleAnagrams = () => { //
-    let outsideArray = []
-    for(let i = 0; i < words.length; i++) {
-        findAnagramInWords(words[i])
+const findMultipleAnagrams = () => { //it's not complete, but it want to get to a point where i can check if it's working
+    let outsideArray = [] //declaring the array so it doesn't have to be declared multiple times
+    let successArray = [] //the array of the succeeding anagrams
+    for (let i = 0; i < words.length; i++) {
+        let currentWord = findAnagramInWords(words[i])
+        if(currentWord.length >= 5) {
+            successArray.push(currentWord.join(', '))
+        }
+    //     outsideArray = [words[i]] //resets the temporary array //makes sure the current word is added to the temporary array
+    //     for(let j = i + 1; j < words.length; j++) {
+    //         if(words[i].split('').sort() === words[j].split('').sort()) { //compares each word to each subsequent word
+    //             outsideArray.push(words[j])
+    //         }
+    //     }
+    //     if(outsideArray.length >= 5) { //if the temporary array has 5 or more values, it turns it into a string and adds it to the success array
+    //         successArray.push(outsideArray.join(', '))
+    //         console.log(successArray)
+    //     }
     }
+    return successArray//returns the success array, but somehow it acts like an infinite loop before it gets to this point
 }

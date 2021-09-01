@@ -12,6 +12,9 @@ _(Put your project plan here. It could be pseudocode, an outline-style developme
 
 1. take words and alphabetize them
 2. take input and alphabetize them 
+3. display words that are made up of the same letters
+
+1. check if each value is an anagram with the other values
 
 ## Reflection
 
