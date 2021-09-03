@@ -6,6 +6,7 @@
 const userInput = document.getElementById('textBox')
 const submit = document.getElementById('submitButton')
 const results = document.getElementById('anagrams')
+const setsOfFive = document.getElementById('fiveAnagrams')
 
 const submitInput = () => { //makes a function to submit the input so i can put it on the submit button and pressing enter on the keyboard
     let lowerWord = userInput.value
@@ -47,8 +48,19 @@ const findMultipleAnagrams = () => { //it's not complete, but it want to get to 
         let currentWord = findAnagramInWords(words[i]) //gets an array of all anagrams of the current word
         if(currentWord.length >= 5) { //only add to the success array if it's at least five words
             successArray.push(currentWord.join(', ')) //makes each array one value so it's easier to read
+            console.log(currentWord)
         }
     }
     
     return successArray//returns the success array, but somehow it acts like an infinite loop before it gets to this point
 }
+
+setsOfFive.addEventListener('click', () => {
+    console.log('started successfully')
+    let container = document.createElement('p')
+    let result = findAnagramInWords()
+    
+    container.innerText = result
+    console.log(container)
+    results.append(container)
+})
