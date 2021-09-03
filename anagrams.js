@@ -1,5 +1,6 @@
 // Your Code Here.
 
+
 //console.log(words[5].split('').sort().join(''));
 
 //the html elements
@@ -35,7 +36,7 @@ submit.addEventListener('click', () => { //gets the input from the text box and 
     submitInput()
 })
 
-userInput.addEventListener('keydown', e => {
+userInput.addEventListener('keydown', e => { //so pressing enter in the text box will submit the word
     if (e.keyCode === 13) {
         submitInput()
     }
@@ -55,12 +56,12 @@ const findMultipleAnagrams = () => { //it's not complete, but it want to get to 
     return successArray//returns the success array, but somehow it acts like an infinite loop before it gets to this point
 }
 
-setsOfFive.addEventListener('click', () => {
+setsOfFive.addEventListener('click', () => { //what happens when the button for the intermediate challenge is clicked
     console.log('started successfully')
-    let container = document.createElement('p')
-    let result = findAnagramInWords()
+    let container = document.createElement('p') //creates an element to put it in
+    let result = findMultipleAnagrams() //runs the function, currently running too slowly
     
-    container.innerText = result
+    container.innerText = result //i don't think i need to stringify it if i'm setting it as inner text, but i might be wrong
     console.log(container)
     results.append(container)
 })
