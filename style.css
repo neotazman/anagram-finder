@@ -6,6 +6,7 @@ body {
 button {
     background-color: black;
     color: gold;
+    border-radius: 15%;
 }
 
 input {

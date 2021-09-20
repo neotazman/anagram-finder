@@ -1,5 +1,5 @@
 // Your Code Here.
-
+//create an object with the anagram solutions
 
 //console.log(words[5].split('').sort().join(''));
 
