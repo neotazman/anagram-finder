@@ -15,7 +15,7 @@ const submitInput = () => { //makes a function to submit the input so i can put 
     findAnagram(input)
 }
 
-const findAnagramInWords = (word) => { //function that finds anagrams from a given word
+const findAnagramInWords = (word) => { //function that finds anagrams from a given word !!!!RETURNS AN OBJECT NOW!!!!
     //let anagramArray = [] //holds the words that are anagrams
     let anagramObject = {}
 
