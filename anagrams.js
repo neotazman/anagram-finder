@@ -16,18 +16,23 @@ const submitInput = () => { //makes a function to submit the input so i can put 
 }
 
 const findAnagramInWords = (word) => { //function that finds anagrams from a given word
-    let anagramArray = [] //holds the words that are anagrams
+    //let anagramArray = [] //holds the words that are anagrams
+    let anagramObject = {}
 
     words.map((anaWord) => { //goes through all the words and finds the anagrams
         if(anaWord.split('').sort().join('') === word.split('').sort().join('')) { //taking the string and converting it into an array so it can be sorted to find the anagrams, i thought strings were already arrays, but i guess not
-            anagramArray.push(anaWord);
+            if(anagramObject[anaWord.split('').sort().join('')]) { //creating an object to store the anagrams so a new array doesn't have to be created every time the function runs
+                anagramObject[anaWord.split('').sort().join('')].push(anaWord) //if the key exists, add the value to the array
+            } else {
+                anagramObject = { [anaWord.split('').sort().join('')]: [anaWord] } //if the key doesn't exist, it creates a key value pair
+            }
         }
     })
-    return anagramArray
+    return anagramObject
 }
 
 const findAnagram = (input) => { //puts the anagrams into the results div
-    let result = findAnagramInWords(input).join(', '); //turns the array into a string that can be written on the page
+    let result = findAnagramInWords(input)[input.split(',')[0].split('').sort().join('')].join(', '); //turns the array on the object into a string that can be written on the page
     results.innerText = '' //resets the results div when a new submission is made
     results.append(result)
 }
@@ -44,13 +49,17 @@ userInput.addEventListener('keydown', e => { //so pressing enter in the text box
 
 const findMultipleAnagrams = () => { //it's not complete, but it want to get to a point where i can check if it's working
     let successArray = [] //the array of the succeeding anagrams
+    let successObject = {}
 
     for (let i = 0; i < words.length; i++) {
-        let currentWord = findAnagramInWords(words[i]) //gets an array of all anagrams of the current word
-        if(currentWord.length >= 5) { //only add to the success array if it's at least five words
-            successArray.push(currentWord.join(', ')) //makes each array one value so it's easier to read
-            console.log(currentWord)
+        if(words[i].length > 3) {
+            let currentWord = findAnagramInWords(words[i]) //gets an array of all anagrams of the current word
+            if(currentWord.length >= 5) { //only add to the success array if it's at least five words
+                successArray.push(currentWord.join(', ')) //makes each array one value so it's easier to read
+                console.log(currentWord)
+            }
         }
+
     }
     
     return successArray//returns the success array, but somehow it acts like an infinite loop before it gets to this point
