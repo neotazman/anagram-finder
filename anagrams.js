@@ -18,17 +18,20 @@ const submitInput = () => { //makes a function to submit the input so i can put 
 
 const findAnagramInWords = (word) => { //function that finds anagrams from a given word !!!!RETURNS AN OBJECT NOW!!!!
     //let anagramArray = [] //holds the words that are anagrams
-
-    words.map((anaWord) => { //goes through all the words and finds the anagrams
-        if(anaWord.split('').sort().join('') === word.split('').sort().join('')) { //taking the string and converting it into an array so it can be sorted to find the anagrams, i thought strings were already arrays, but i guess not
-            if(anagramObject[anaWord.split('').sort().join('')]) { //creating an object to store the anagrams so a new array doesn't have to be created every time the function runs
-                anagramObject[anaWord.split('').sort().join('')].push(anaWord) //if the key exists, add the value to the array
-            } else {
-                anagramObject = { [anaWord.split('').sort().join('')]: [anaWord] } //if the key doesn't exist, it creates a key value pair
+    if(!anagramObject[word.split('').sort().join('')]) { // so the map function doesn't run if the anagram already exists on the object
+        words.map((anaWord) => { //goes through all the words and finds the anagrams
+            if(anaWord.split('').sort().join('') === word.split('').sort().join('')) { //taking the string and converting it into an array so it can be sorted to find the anagrams, i thought strings were already arrays, but i guess not
+                if(anagramObject[anaWord.split('').sort().join('')]) { //creating an object to store the anagrams so a new array doesn't have to be created every time the function runs
+                    anagramObject[anaWord.split('').sort().join('')].push(anaWord) //if the key exists, add the value to the array
+                } else {
+                    anagramObject = { [anaWord.split('').sort().join('')]: [anaWord] } //if the key doesn't exist, it creates a key value pair
+                }
             }
-        }
-    })
+        })
+    }
+
     return anagramObject[word.split('').sort().join('')]
+
 }
 
 const findAnagram = (input) => { //puts the anagrams into the results div
@@ -49,10 +52,9 @@ userInput.addEventListener('keydown', e => { //so pressing enter in the text box
 
 const findMultipleAnagrams = () => { //it works, but it takes 17 minutes to complete
     let successArray = [] //the array of the succeeding anagrams
-    let successObject = {}
 
     for (let i = 0; i < words.length; i++) {
-        if(words[i].length > 3) {
+        if(words[i].length > 3 && !anagramObject[words[i].split('').sort().join('')]) { // this conditional should make it run much faster
             let currentWord = findAnagramInWords(words[i])//[words[i].split('').join('')] //gets an array of all anagrams of the current word
             if(currentWord.length >= 5 && !successArray.includes(currentWord.join(', '))) { //only add to the success array if it's at least five words and it doesn't match another array in the success array
                 successArray.push(currentWord.join(', ')) //makes each array one value so it's easier to read
