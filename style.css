@@ -1,1 +1,25 @@
 /* Write your CSS Here. */
+body {
+    background-color: skyblue;
+}
+
+button {
+    background-color: black;
+    color: gold;
+    border-radius: 15%;
+}
+
+input {
+    background-color: black;
+    color: greenyellow;
+}
+
+* {
+    text-align: center;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+#anagrams {
+    font-size: 5vh;
+    color: darkred;
+}
