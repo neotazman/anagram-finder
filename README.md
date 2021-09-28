@@ -19,6 +19,6 @@ _(Put your project plan here. It could be pseudocode, an outline-style developme
 ## Reflection
 
 What different approaches or techniques did you consider when planning your implementation? What were the advantages and disadvantages of those alternatives?
-i haven't yet tried to save the values on an object, but the way i'm doing it takes a long time
 
-_(Put your reflection answer here.)_
+with zak reid's advice i have saved the anagrams on an object, so it doesn't rerun the same code multiple timesm, but the way i'm doing it still takes a long time
+

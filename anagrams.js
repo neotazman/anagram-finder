@@ -8,6 +8,7 @@ const userInput = document.getElementById('textBox')
 const submit = document.getElementById('submitButton')
 const results = document.getElementById('anagrams')
 const setsOfFive = document.getElementById('fiveAnagrams')
+const fivePlusResults = document.getElementById('allSetsOfFive')
 let anagramObject = {}
 
 const submitInput = () => { //makes a function to submit the input so i can put it on the submit button and pressing enter on the keyboard
@@ -74,5 +75,5 @@ setsOfFive.addEventListener('click', () => { //what happens when the button for 
     
     container.innerText = result //i don't think i need to stringify it if i'm setting it as inner text, but i might be wrong
     console.log(container) //just in case the above line doesn't run
-    setsOfFive.append(container)
+    allSetsOfFive.append(container)
 })
