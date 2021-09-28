@@ -50,7 +50,7 @@ userInput.addEventListener('keydown', e => { //so pressing enter in the text box
     }
 })
 
-const findMultipleAnagrams = () => { //it works, but it takes 17 minutes to complete
+const findMultipleAnagrams = () => { //it works, but it takes 15 minutes to complete
     let successArray = [] //the array of the succeeding anagrams
 
     for (let i = 0; i < words.length; i++) {
@@ -74,5 +74,5 @@ setsOfFive.addEventListener('click', () => { //what happens when the button for 
     
     container.innerText = result //i don't think i need to stringify it if i'm setting it as inner text, but i might be wrong
     console.log(container) //just in case the above line doesn't run
-    results.append(container)
+    setsOfFive.append(container)
 })
