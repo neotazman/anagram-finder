@@ -45,8 +45,8 @@ const findAnagram = (input) => { //puts the anagrams into the results div
 //     submitInput()
 // })
 
-userInput.addEventListener('input', e => { //so pressing enter in the text box will submit the word
-        submitInput()
+userInput.addEventListener('input', () => { //so pressing enter in the text box will submit the word
+    submitInput()
 })
 
 const findMultipleAnagrams = () => { //it works, but it takes 15 minutes to complete
@@ -66,12 +66,12 @@ const findMultipleAnagrams = () => { //it works, but it takes 15 minutes to comp
     return successArray//returns the success array
 }
 
-setsOfFive.addEventListener('click', () => { //what happens when the button for the intermediate challenge is clicked
-    console.log('started successfully')
-    let container = document.createElement('p') //creates an element to put it in
-    let result = findMultipleAnagrams() //runs the function, currently running too slowly
+// setsOfFive.addEventListener('click', () => { //what happens when the button for the intermediate challenge is clicked
+//     console.log('started successfully')
+//     let container = document.createElement('p') //creates an element to put it in
+//     let result = findMultipleAnagrams() //runs the function, currently running too slowly
     
-    container.innerText = result //i don't think i need to stringify it if i'm setting it as inner text, but i might be wrong
-    console.log(container) //just in case the above line doesn't run
-    allSetsOfFive.append(container)
-})
+//     container.innerText = result //i don't think i need to stringify it if i'm setting it as inner text, but i might be wrong
+//     console.log(container) //just in case the above line doesn't run
+//     allSetsOfFive.append(container)
+// })
