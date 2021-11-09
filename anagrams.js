@@ -5,7 +5,7 @@
 
 //the html elements
 const userInput = document.getElementById('textBox')
-const submit = document.getElementById('submitButton')
+// const submit = document.getElementById('submitButton')
 const results = document.getElementById('anagrams')
 const setsOfFive = document.getElementById('fiveAnagrams')
 const fivePlusResults = document.getElementById('allSetsOfFive')
@@ -41,14 +41,12 @@ const findAnagram = (input) => { //puts the anagrams into the results div
     results.append(result)
 }
 
-submit.addEventListener('click', () => { //gets the input from the text box and runs the anagram function
-    submitInput()
-})
+// submit.addEventListener('click', () => { //gets the input from the text box and runs the anagram function
+//     submitInput()
+// })
 
-userInput.addEventListener('keydown', e => { //so pressing enter in the text box will submit the word
-    if (e.keyCode === 13) {
+userInput.addEventListener('input', e => { //so pressing enter in the text box will submit the word
         submitInput()
-    }
 })
 
 const findMultipleAnagrams = () => { //it works, but it takes 15 minutes to complete
