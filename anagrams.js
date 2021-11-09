@@ -25,7 +25,7 @@ const findAnagramInWords = (word) => { //function that finds anagrams from a giv
                 if(anagramObject[anaWord.split('').sort().join('')]) { //creating an object to store the anagrams so a new array doesn't have to be created every time the function runs
                     anagramObject[anaWord.split('').sort().join('')].push(anaWord) //if the key exists, add the value to the array
                 } else {
-                    anagramObject = { [anaWord.split('').sort().join('')]: [anaWord] } //if the key doesn't exist, it creates a key value pair
+                    anagramObject = { ...anagramObject, [anaWord.split('').sort().join('')]: [anaWord] } //if the key doesn't exist, it creates a key value pair
                 }
             }
         })
